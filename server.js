@@ -44,6 +44,11 @@ const server = http.createServer((req, res) => {
   const parsedUrl = new URL(req.url || '/', `http://localhost:${PORT}`);
   let pathname = parsedUrl.pathname;
 
+  // Normalize base path for GitHub Pages compatibility
+  if (pathname.startsWith('/LL-1--Parsing')) {
+    pathname = pathname.slice('/LL-1--Parsing'.length) || '/';
+  }
+
   // Backend Health check endpoint
   if (pathname === '/api/health') {
     res.writeHead(200, { 'Content-Type': 'application/json' });

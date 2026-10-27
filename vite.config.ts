@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: './',
+  base: '/LL-1--Parsing/',
   plugins: [react(), tailwindcss()],
   test: {
     globals: true,
